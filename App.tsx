@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <div className="absolute inset-0 bg-black opacity-30 z-10"></div> {/* Dark overlay to ensure text contrast */}
         <img 
-          src="/bg.jpg"
+          src="/bg.png"
           alt="Dark Void Background"
           className="w-full h-full object-cover opacity-80"
         />
