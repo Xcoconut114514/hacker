@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-30 z-10"></div> {/* Dark overlay to ensure text contrast */}
         <div 
           className="w-full h-full bg-cover bg-center opacity-80"
-          style={{ backgroundImage: "url('./bg.png')" }}
+          style={{ backgroundImage: "url('/bg.png')" }}
         ></div>
       </div>
 
