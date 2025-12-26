@@ -4,7 +4,7 @@ export const Logo: React.FC = () => {
   return (
     <div className="flex flex-col items-center gap-3">
       {/* Pixel Art Infinity Symbol Simulation */}
-      <div className="w-32 h-16 relative">
+      <div className="w-48 h-24 relative">
         <svg viewBox="0 0 64 32" className="w-full h-full fill-current">
             <defs>
                 <linearGradient id="pixel-grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -51,7 +51,7 @@ export const Logo: React.FC = () => {
       </div>
       
       {/* Text */}
-      <div className="font-pixel text-2xl tracking-widest text-gray-200">
+      <div className="font-pixel text-3xl tracking-widest text-gray-200">
         WebPsy Labs
       </div>
     </div>

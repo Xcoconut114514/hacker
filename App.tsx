@@ -1,19 +1,35 @@
 import React from 'react';
 import { Logo } from './components/Logo';
-import { GradientOrb } from './components/GradientOrb';
+
+const recruitmentButtons = [
+  {
+    label: 'Sponsor Recruitment',
+    description: 'Support cross-disciplinary innovation and gain visibility, speaking opportunities, and collaboration rights.',
+    actionText: 'Become a Sponsor'
+  },
+  {
+    label: 'Guest Speaker Recruitment',
+    description: 'We invite researchers, speakers, workshop hosts, and practitioners to contribute sessions and dialogues.',
+    actionText: 'Apply as Guest Speaker'
+  },
+  {
+    label: 'Co-Builder Recruitment',
+    description: 'Join our long-term builder network — developers, designers, researchers, and community organizers.',
+    actionText: 'Join as Co-Builder'
+  }
+];
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-black relative overflow-hidden flex flex-col text-white selection:bg-white selection:text-black">
       
-      {/* Background Image - Dark Abstract Wireframe/Void Style */}
+      {/* Background Image - Restored bg.png */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <div className="absolute inset-0 bg-black opacity-30 z-10"></div> {/* Dark overlay to ensure text contrast */}
-        <img 
-          src="/bg.png"
-          alt="Dark Void Background"
-          className="w-full h-full object-cover opacity-80"
-        />
+        <div 
+          className="w-full h-full bg-cover bg-center opacity-80"
+          style={{ backgroundImage: "url('./bg.png')" }}
+        ></div>
       </div>
 
       {/* Header / Logo */}
@@ -73,12 +89,26 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Orb */}
-        <div className="flex-1 w-full md:w-2/5 flex flex-col items-center md:items-end justify-center relative mt-12 md:mt-0">
-          
-          {/* The Gradient Orb */}
-          <div className="w-full flex justify-center md:justify-end pr-0 md:pr-12">
-             <GradientOrb />
+        {/* Right Column: Recruitment Buttons */}
+        <div className="flex-1 w-full md:w-2/5 flex flex-col items-center md:items-end justify-center relative mt-16 md:mt-0 z-30">
+          <div className="flex flex-col gap-6 w-full max-w-sm md:max-w-none md:w-auto">
+            {recruitmentButtons.map((btn, index) => (
+              <div key={index} className="group relative flex items-center justify-end">
+                
+                {/* Tooltip / Description (Left side on desktop) */}
+                <div className="absolute right-0 top-full mt-4 md:mt-0 md:top-1/2 md:-translate-y-1/2 md:right-full md:mr-6 w-full md:w-72 p-4 bg-black/90 border border-gray-700 rounded-sm text-sm text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                  <p className="mb-2 leading-relaxed">{btn.description}</p>
+                  <div className="flex items-center text-xs text-white font-semibold uppercase tracking-wider">
+                    <span className="mr-2">👉</span> {btn.actionText}
+                  </div>
+                </div>
+
+                {/* Button */}
+                <button className="w-full md:w-auto px-8 py-4 border border-gray-600 bg-black/40 text-white font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 uppercase tracking-widest text-sm backdrop-blur-sm text-center md:text-right">
+                  {btn.label}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
