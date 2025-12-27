@@ -81,20 +81,12 @@ const App: React.FC = () => {
         ></div>
       </div>
 
-      {/* Top Right Logo Placeholder */}
-      <div className="absolute top-8 right-8 md:top-12 md:right-16 z-50">
-          {/* 👇 PASTE YOUR LOCAL IMAGE CODE HERE 👇 */}
+    <div className="absolute top-8 right-8 md:top-12 md:right-16 z-50">
           <img 
             src="/logo.png" 
             alt="Logo" 
             className="w-32 md:w-48 h-auto object-contain"
-            // Remove 'hidden' once you have the actual image file
-            style={{ display: 'none' }} 
           />
-          {/* Temporary Visual Placeholder (Delete this div when you add your image) */}
-          <div className="border border-white/20 bg-black/50 backdrop-blur-md px-4 py-2 text-xs text-gray-400 font-mono">
-            [LOGO IMAGE HERE]
-          </div>
       </div>
 
       {/* Main Content Area */}
