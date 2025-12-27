@@ -98,104 +98,116 @@ const App: React.FC = () => {
       </div>
 
       {/* Main Content Area */}
-      {/* Reduced top padding to move everything up: pt-8 md:pt-14 */}
-      <main className="flex-1 flex flex-col md:flex-row items-stretch justify-between px-6 md:px-16 lg:px-24 pt-8 md:pt-14 z-10 w-full max-w-8xl mx-auto relative">
+      {/* Using a single flex column container for the whole page content to manage vertical flow better */}
+      <main className="flex-1 flex flex-col px-6 md:px-16 lg:px-24 pt-8 md:pt-14 pb-12 z-10 w-full max-w-8xl mx-auto relative h-full">
         
-        {/* Left Column: Text Content */}
-        <div className="flex-1 w-full md:w-3/5 flex flex-col justify-start relative pb-12">
-          
-          {/* Decorative vertical line */}
-          <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-gray-700 to-transparent hidden md:block"></div>
+        {/* Inner Content Wrapper to Anchor the Vertical Line Correctly relative to content */}
+        <div className="relative flex-1 flex flex-col h-full w-full">
 
-          {/* Title Group */}
-          <div className="mb-12 md:mb-16 space-y-6">
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
-              Hacker Retreat
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl opacity-90">
-              Hacker Retreat is a collaborative experimental residency for AI builders, Web3 architects, researchers, bio-hackers, and creators.
-            </p>
-          </div>
+            {/* Decorative Vertical Line - Spans full height of this inner wrapper */}
+            <div className="absolute left-[-20px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-gray-700 to-transparent hidden md:block"></div>
 
-          {/* Topics List */}
-          <div className="space-y-6">
-            <div className="group">
-                <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
-                  AI & Agentic Future
-                </p>
-                <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
+            {/* --- TOP SECTION: Title --- */}
+            <div className="w-full md:w-3/5 mb-12 md:mb-16">
+                 <div className="space-y-6">
+                    <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
+                      Hacker Retreat
+                    </h1>
+                    <p className="text-lg md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl opacity-90">
+                      Hacker Retreat is a collaborative experimental residency for AI builders, Web3 architects, researchers, bio-hackers, and creators.
+                    </p>
+                 </div>
             </div>
-            <div className="group">
-                <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
-                  Web3 & Networked Civilization
-                </p>
-                <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
-            </div>
-            <div className="group">
-                <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
-                  Biohacking & Longevity
-                </p>
-                <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
-            </div>
-          </div>
 
-          {/* Footer Info (Socials moved to right) */}
-          <div className="pt-12 md:pt-24 mt-auto">
-            <div className="mb-8">
-                <p className="text-lg md:text-xl text-gray-400 font-normal mb-2 tracking-wide">
-                Chiang Mai · January–February 2026
-                </p>
-                <p className="text-lg md:text-xl text-white italic font-medium">
-                Sponsor opportunities now open
-                </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Recruitment Buttons & Social Icons */}
-        {/* Adjusted spacing: pb-24/pb-40 pushes everything up from bottom. justify-center centers vertically. gap-16 separates buttons/icons. */}
-        <div className="flex-1 w-full md:w-2/5 flex flex-col items-center md:items-end justify-center relative mt-12 md:mt-0 z-30 pb-20 md:pb-40 gap-16">
-          
-          {/* Buttons Container */}
-          <div className="flex flex-col gap-6 w-full max-w-sm md:max-w-none md:w-auto">
-            {recruitmentButtons.map((btn, index) => (
-              <div key={index} className="group relative flex items-center justify-end">
+            {/* --- MIDDLE SECTION: Topics (Left) & Buttons (Right) --- */}
+            {/* Flex Row ensures they start at the same vertical level */}
+            <div className="flex flex-col md:flex-row w-full relative">
                 
-                {/* Tooltip / Description */}
-                <div className="absolute right-0 top-full mt-4 md:mt-0 md:top-1/2 md:-translate-y-1/2 md:right-full md:mr-6 w-full md:w-72 p-4 bg-black/90 border border-gray-700 rounded-sm text-sm text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-                  <p className="mb-2 leading-relaxed">{btn.description}</p>
-                  <div className="flex items-center text-xs text-white font-semibold uppercase tracking-wider">
-                    <span className="mr-2">👉</span> {btn.actionText}
-                  </div>
+                {/* Left: Topics */}
+                <div className="w-full md:w-3/5 space-y-6">
+                     <div className="group">
+                        <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
+                          AI & Agentic Future
+                        </p>
+                        <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
+                    </div>
+                    <div className="group">
+                        <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
+                          Web3 & Networked Civilization
+                        </p>
+                        <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
+                    </div>
+                    <div className="group">
+                        <p className="text-xl md:text-3xl text-gray-400 font-light group-hover:text-white transition-colors duration-300">
+                          Biohacking & Longevity
+                        </p>
+                        <div className="h-[1px] w-0 group-hover:w-24 bg-white transition-all duration-500 mt-2"></div>
+                    </div>
                 </div>
 
-                {/* Button */}
-                <button className="w-full md:w-auto px-8 py-4 border border-gray-600 bg-black/40 text-white font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 uppercase tracking-widest text-sm backdrop-blur-sm text-center md:text-right">
-                  {btn.label}
-                </button>
-              </div>
-            ))}
-          </div>
+                {/* Right: Buttons */}
+                {/* Aligned to start (top) so they match topics level */}
+                <div className="w-full md:w-2/5 flex flex-col gap-6 items-end justify-start mt-12 md:mt-0">
+                     {recruitmentButtons.map((btn, index) => (
+                      <div key={index} className="group relative flex items-center justify-end w-full md:w-auto">
+                        
+                        {/* Tooltip */}
+                        <div className="absolute right-0 top-full mt-4 md:mt-0 md:top-1/2 md:-translate-y-1/2 md:right-full md:mr-6 w-full md:w-72 p-4 bg-black/90 border border-gray-700 rounded-sm text-sm text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                          <p className="mb-2 leading-relaxed">{btn.description}</p>
+                          <div className="flex items-center text-xs text-white font-semibold uppercase tracking-wider">
+                            <span className="mr-2">👉</span> {btn.actionText}
+                          </div>
+                        </div>
 
-           {/* Social Icons (Large Size, moved up via parent padding and gap) */}
-           <div className="flex flex-wrap gap-6 items-center justify-center md:justify-end">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 flex flex-col items-center gap-2 group"
-                  aria-label={link.name}
-                >
-                  <div className="p-2 border border-transparent group-hover:border-white/20 rounded-full transition-all bg-black/20 backdrop-blur-sm">
-                    {link.icon}
-                  </div>
-                </a>
-              ))}
+                        {/* Button */}
+                        <button className="w-full md:w-auto px-8 py-4 border border-gray-600 bg-black/40 text-white font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 uppercase tracking-widest text-sm backdrop-blur-sm text-center md:text-right">
+                          {btn.label}
+                        </button>
+                      </div>
+                    ))}
+                </div>
             </div>
-        </div>
 
+            {/* SPACER - Pushes the footer section to the bottom and creates distance */}
+            <div className="flex-1 min-h-[4rem]"></div>
+
+            {/* --- BOTTOM SECTION: Footer (Left) & Icons (Right) --- */}
+            {/* Flex Row ensures alignment. items-end aligns the text baseline area with icons */}
+            <div className="flex flex-col md:flex-row w-full relative items-end">
+                
+                {/* Left: Footer Text */}
+                <div className="w-full md:w-3/5 pt-12 md:pt-0">
+                    <div className="mb-2">
+                        <p className="text-lg md:text-xl text-gray-400 font-normal mb-2 tracking-wide">
+                        Chiang Mai · January–February 2026
+                        </p>
+                        <p className="text-lg md:text-xl text-white italic font-medium">
+                        Sponsor opportunities now open
+                        </p>
+                    </div>
+                </div>
+
+                {/* Right: Social Icons */}
+                {/* Large icons (w-8 h-8), aligned to end (right) */}
+                <div className="w-full md:w-2/5 flex flex-wrap gap-6 items-center justify-center md:justify-end mt-8 md:mt-0">
+                    {socialLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 flex flex-col items-center gap-2 group"
+                      aria-label={link.name}
+                    >
+                      <div className="p-2 border border-transparent group-hover:border-white/20 rounded-full transition-all bg-black/20 backdrop-blur-sm">
+                        {link.icon}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+            </div>
+
+        </div>
       </main>
     </div>
   );
