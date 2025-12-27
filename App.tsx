@@ -85,7 +85,7 @@ const App: React.FC = () => {
       <div className="absolute top-8 right-8 md:top-12 md:right-16 z-50">
           {/* 👇 PASTE YOUR LOCAL IMAGE CODE HERE 👇 */}
           <img 
-            src="/your-local-logo.png" 
+            src="/logo.png" 
             alt="Logo" 
             className="w-32 md:w-48 h-auto object-contain"
             // Remove 'hidden' once you have the actual image file
